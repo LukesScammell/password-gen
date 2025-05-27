@@ -14,7 +14,7 @@ const NUMBERS = '0123456789'; // Digits 0-9
 const SYMBOLS = '!@#$%^&*()-_=+[]{};:,.<>?'; // Common symbols
 
 // Function to prompt user for password options and generate password 
-function promptLength() {
+function promptOptions() {
     rl.question('Enter password length (e.g. 12): ', lenInput => {
         const length = parseInt(lenInput) // Convert input to integer
         // Validate length (must be at least 4 characters)
@@ -52,3 +52,12 @@ function promptLength() {
         })
     })
 }
+// Start the app by printing a title and prompting the user
+function start() {
+    rl.question('Welcome to my random password generator, would you like to create a paassword? (y/n): ', input => {
+        console.log('\n')
+        if (input.trim().toLowerCase() === 'y') promptOptions()
+    })
+}
+
+start()
